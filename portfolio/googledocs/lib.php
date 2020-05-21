@@ -239,7 +239,7 @@ class portfolio_plugin_googledocs extends portfolio_plugin_push_base {
         $secret = $this->get_config('secret');
 
         // Setup Google client.
-        $this->client = get_google_client();
+        $this->client = new Google_Client();
         $this->client->setClientId($clientid);
         $this->client->setClientSecret($secret);
         $this->client->setScopes(array(Google_Service_Drive::DRIVE_FILE));
