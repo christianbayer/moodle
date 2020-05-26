@@ -1,21 +1,35 @@
 <?php
+// This file is part of Moodle - http://moodle.org/
+//
+// Moodle is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Moodle is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Firebase autoload.
+ * PHP-JWT autoload.
  *
  * @copyright  2020 Christian Bayer - Univates
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-function firebase_autoload($className)
+function firebase_autoload($classname)
 {
-    $classPath = explode('\\', $className);
-    if($classPath[0] != 'Firebase') {
+    $classpath = explode('\\', $classname);
+    if($classpath[0] != 'Firebase') {
         return;
     }
-    $filePath = dirname(__FILE__) . '/src/' . implode('/', array_slice($classPath, 2)) . '.php';
-    if(file_exists($filePath)) {
-        require_once($filePath);
+    $filepath = dirname(__FILE__) . '/src/' . implode('/', array_slice($classpath, 2)) . '.php';
+    if(file_exists($filepath)) {
+        require_once($filepath);
     }
 }
 
